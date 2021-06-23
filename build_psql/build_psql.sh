@@ -52,11 +52,11 @@ cd "${psql_src_dir}"
 make clean || true
 ./configure --prefix="${psql_install_dir}" --exec-prefix="${psql_install_dir}"
 make -j4
-make install
+echo "${ar18_sudo_password}" | sudo -Sk make install
 
 cd contrib
 cd hstore
-make install
+echo "${ar18_sudo_password}" | sudo -Sk make install
 
 ##################################SCRIPT_END###################################
 # Restore old shell values
